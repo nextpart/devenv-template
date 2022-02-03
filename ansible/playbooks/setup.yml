@@ -1,0 +1,17 @@
+---
+- name: Create user
+  hosts: localhost
+  become: yes
+  become_user: root
+  tasks:
+
+    - name: Display the config
+      debug:
+        msg: |
+          Version:      {{ ansible_version.full }}
+          User:         {{ ansible_user }}
+          Hostname:     {{ ansible_hostname }}
+          OS:           {{ ansible_os_family }}
+          Distribution: {{ ansible_distribution }}
+          Inventory:    {{ inventory_file }}
+          Role:         {{ role_path  }}
