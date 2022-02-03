@@ -1,7 +1,25 @@
+
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: true
+    addCheck: false
+    addComment: false
+    addBadge: true
+
 image:
   file: .devcontainer/Dockerfile
+  context: ./devcontainer
+checkoutLocation: "gitpod-experiment"
+workspaceLocation: "gitpod-experiment"
 tasks:
   - init: |
       echo 'TODO: build project'
     command: |
+
       echo 'TODO: start app'
+vscode:
+  extensions:
+    - redhat.ansible
