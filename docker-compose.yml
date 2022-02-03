@@ -1,0 +1,31 @@
+version: "3.4"
+
+volumes:
+  opt-splunk-etc:
+  opt-splunk-var:
+
+services:
+  splunk:
+    container_name: splunk
+    hostname: splunk
+    image: splunk/${SPLUNK_IMAGE}
+    environment:
+      SPLUNK_START_ARGS: --accept-license
+      SPLUNK_ENABLE_LISTEN: 9997
+      SPLUNK_ADD: tcp 1514
+      SPLUNK_PASSWORD: ${SPLUNK_PASSWORD}
+      # SPLUNK_APPS_URL: ${SPLUNK_APPS_URLS}
+      SPLUNK_CMD_1: "restart"
+      PATH: $PATH:/opt/splunk/bin
+      SPLUNK_CMD:
+        "add licenses -auth admin:${SPLUNK_PASSWORD} /hack/splunk/licenses/*.lic || true"
+    user: root
+    volumes:
+      - opt-splunk-etc:/opt/splunk/etc
+      - opt-splunk-var:/opt/splunk/var
+    ports:
+      - "8000:8000"
+      - "9997:9997"
+      - "8088:8088"
+      - "8090:8089"
+    restart: unless-stopped

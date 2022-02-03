@@ -16,10 +16,11 @@ checkoutLocation: "gitpod-experiment"
 workspaceLocation: "gitpod-experiment"
 tasks:
   - init: |
-      echo 'TODO: build project'
+      docker-compose up -d
+    
     command: |
-
-      echo 'TODO: start app'
+      docker exec splunk splunk status
+    
 vscode:
   extensions:
     - redhat.ansible
