@@ -10,7 +10,7 @@ github:
     addBadge: true
 
 image:
-  file: .devcontainer/Dockerfile
+  file: .devcontainer/gitpod.Dockerfile
   context: ./.devcontainer
 checkoutLocation: "gitpod-experiment"
 workspaceLocation: "gitpod-experiment"
