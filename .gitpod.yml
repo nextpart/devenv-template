@@ -11,7 +11,7 @@ github:
 
 image:
   file: .devcontainer/Dockerfile
-  context: ./devcontainer
+  context: ./.devcontainer
 checkoutLocation: "gitpod-experiment"
 workspaceLocation: "gitpod-experiment"
 tasks:
