@@ -2,5 +2,6 @@
 ---
 collections: {}
 roles: 
+  - viasite-ansible.zsh
   - andrewrothstein.starship
 

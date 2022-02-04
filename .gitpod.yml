@@ -16,11 +16,15 @@ checkoutLocation: "gitpod-experiment"
 workspaceLocation: "gitpod-experiment"
 tasks:
   - init: |
-      docker-compose up -d
+      ansible-galaxy role install -r ansible/roles/requirements.yml
     
     command: |
-      docker exec splunk splunk status
+      ansible-playbook -c localhost ansible/playbooks/setup.yml -e username=gitpod
     
 vscode:
   extensions:
     - redhat.ansible
+    - ms-azuretools.vscode-docker
+    - mhutchie.git-graph
+    - eamodio.gitlens
+    - ms-azure-devops.azure-pipelines
