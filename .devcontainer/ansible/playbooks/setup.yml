@@ -61,3 +61,8 @@
       user:
         name: '{{ username }}'
         shell: "/bin/zsh"
+
+    - name: Install pre-commit python package
+      pip:
+        name:
+          - pre-commit

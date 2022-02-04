@@ -20,9 +20,10 @@ tasks:
       ansible-playbook -c localhost ./.devcontainer/ansible/playbooks/setup.yml -e username=gitpod
 
     init: |
-      zsh
+      pre-commit install
 
     command: |
+      zsh ;
       echo "Welcome to the preconfigured development environment! ✌️"
 
 vscode:
