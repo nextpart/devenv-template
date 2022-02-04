@@ -1,13 +1,13 @@
 
 github:
   prebuilds:
-    master: true
-    branches: true
-    pullRequests: true
-    pullRequestsFromForks: true
-    addCheck: false
-    addComment: false
-    addBadge: true
+    master: true  # enable for the default branch (defaults to true)
+    branches: true  # enable for all branches in this repo (defaults to false)
+    pullRequests: true  # enable for pull requests coming from this repo (defaults to true)
+    pullRequestsFromForks: false # enable for pull requests coming from forks (defaults to false)
+    addCheck: false # add a check to pull requests (defaults to true)
+    addComment: false # add a "Review in Gitpod" button as a comment to pull requests (defaults to false)
+    addBadge: true # add a "Review in Gitpod" button to the pull request's description (defaults to false)
 
 image:
   file: .devcontainer/gitpod.Dockerfile
@@ -20,6 +20,9 @@ tasks:
       ansible-playbook -c localhost ./.devcontainer/ansible/playbooks/setup.yml -e username=gitpod
 
     init: |
+      zsh
+
+    command: |
       echo "Welcome to the preconfigured development environment! ✌️"
 
 vscode:
