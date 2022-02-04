@@ -3,10 +3,10 @@
   hosts: localhost
   become: yes
   become_user: root
-  vars: 
+  vars:
     - zsh_fzf_version: 0.17.4
-  # roles:
-  #   - andrewrothstein.starship
+  roles:
+    - andrewrothstein.starship
   tasks:
     - name: Display the config
       debug:
@@ -35,10 +35,11 @@
           repo: "https://github.com/junegunn/fzf.git"
           dest: "/home/{{ username }}/.fzf"
           version: "{{ zsh_fzf_version }}"
-        
+
       - name: Install fzf
+        become_user: "{{ username }}"
         command: "/home/{{ username }}/.fzf/install --all"
-        
+
       - name: Set ~/.fzf.zsh init permissions
         file:
           dest: "/home/{{ username }}/.fzf.zsh"
@@ -46,7 +47,7 @@
           owner: "{{ username }}"
           group: "{{ username }}"
           mode: 0755
-        
+
       - name: Set ~/.fzf.bash init permissions
         file:
           dest: "/home/{{ username }}/.fzf.bash"
@@ -60,4 +61,3 @@
       user:
         name: '{{ username }}'
         shell: "/bin/zsh"
-

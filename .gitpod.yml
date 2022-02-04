@@ -15,16 +15,16 @@ image:
 checkoutLocation: "gitpod-experiment"
 workspaceLocation: "gitpod-experiment"
 tasks:
-  - init: |
-      ansible-galaxy role install -r ansible/roles/requirements.yml
-    
-    command: |
-      ansible-playbook -c localhost ansible/playbooks/setup.yml -e username=gitpod
-    
+  - before: |
+      ansible-galaxy role install -r ./.devcontainer/ansible/roles/requirements.yml
+      ansible-playbook -c localhost ./.devcontainer/ansible/playbooks/setup.yml -e username=gitpod
+
+    init: |
+      echo "Welcome to the preconfigured development environment! ✌️"
+
 vscode:
   extensions:
     - redhat.ansible
     - ms-azuretools.vscode-docker
     - mhutchie.git-graph
     - eamodio.gitlens
-    - ms-azure-devops.azure-pipelines
