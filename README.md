@@ -10,5 +10,5 @@ Maybe you can use this as a basic template for remote development projects and c
 
 ## 🔗 References
 
-- [Gitpod]()
-- [VS Code devcontainer]()
+- [Gitpod](https://www.gitpod.io/docs)
+- [VS Code devcontainer](https://code.visualstudio.com/docs/remote/containers)
